@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --rojo-3d: rgba(255, 0, 0, 0.5);
+    --azul-3d: rgba(0, 255, 255, 0.5);
+}
+
+.txt-3d{
+    --desplazamiento: 6px;
+
+    text-shadow: 
+        calc(-1* var(--desplazamiento)) 0 0 var(--rojo-3d),
+        var(--desplazamiento) 0 0 var(--azul-3d);
+}
+
+.elemento-3d{
+    --desplazamiento: 6px;
+
+    box-shadow: 
+        calc(-1* var(--desplazamiento)) 0 0 var(--rojo-3d),
+        var(--desplazamiento) 0 0 var(--azul-3d);
+}
+
+.centrador{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+

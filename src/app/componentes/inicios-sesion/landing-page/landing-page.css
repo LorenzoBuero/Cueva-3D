@@ -1,0 +1,34 @@
+#titulo{
+    display: flex;
+    justify-content: center;
+
+    font-size:6em; 
+}
+
+#zona-botones button{
+    padding: 2em;
+}
+
+#lentes-imagen{
+    z-index: 1;
+}
+
+.contenedor-boton-en-lentes{
+    position: absolute;
+    padding: 3em 10em;
+
+}
+
+.contenedor-boton-en-lentes button{
+    z-index: 0;
+}
+
+#btn-iniciar-sesion{
+    top: 19em;
+    left: 56em;
+}
+
+#btn-registrarse{
+    top: 19em;
+    left: 18em;
+}

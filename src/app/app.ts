@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   imports: [RouterOutlet],
@@ -8,5 +8,8 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
 })
 export class App {
+  
   protected readonly title = signal('cueva3D');
+  
+  constructor(public router:Router){}
 }

@@ -1,0 +1,157 @@
+<div id="contenido">
+
+    <div id="btn-volver" routerLink="/inicio">
+        <span id="texto-volver">< Volver</span>
+    </div>
+
+
+    <div class="centrador">
+    <div id="recuadro-ingreso-datos">
+
+        <form [formGroup]="formulario" (ngSubmit)="guardar()">
+        <div id="zona-ingreso-datos" >
+           
+
+            <div id="contenedor-mail" class="form-group">
+                <label for="email">*Correo electrónico:</label>
+                <input 
+                    id="email" 
+                    type="email" 
+                    formControlName="email"
+                    [class.is-invalid]="esCampoInvalido('email')">
+
+                
+                @if (formulario.get('email')?.touched && !formulario.get('email')?.valid){
+                <div class="error">
+                    @for(mensaje of obtenerMensajesError(["email"]) ; track $index){
+                        <small>{{mensaje}}</small>
+                    }
+                </div>
+                }
+                
+
+
+            </div>
+
+
+
+            <div id="contenedor-contraseñas" class="form-group">
+                *Contraseña
+                <input type="password" id="contrasenia" formControlName="contrasenia" [class.is-invalid]="esCampoInvalido('contrasenia')">
+                *Vuelva a ingresar la contraseña
+                <input type="password" id="contrasenia-repetida" formControlName="contraseniaRepetida" [class.is-invalid]="esCampoInvalido('contraseniaRepetida')">
+
+                
+                @if (formulario.get('contrasenia')?.touched){
+                    @if(!formulario.get('contrasenia')?.valid){
+                    <div class="error">
+                        @for(mensaje of obtenerMensajesError(["contrasenia"]) ; track $index){
+                            <small>{{mensaje}}</small>
+                        }
+                    </div>
+                    }
+                    @else{
+                        <div class="error">
+                            @for(mensaje of obtenerMensajesError(['contraseniaRepetida']) ; track $index){
+                                <small>{{mensaje}}</small>
+                            }
+                        </div>
+                    }
+                }
+
+                
+            </div>
+
+
+            
+            <div id="contenedor-nombre-apellido" class="form-group">
+                *Nombre y apellido
+                <input type="text" id="nombre" formControlName="nombre" [class.is-invalid]="esCampoInvalido('nombre')">
+                <input type="text" id="apellido" formControlName="apellido" [class.is-invalid]="esCampoInvalido('apellido')">
+            
+                @if (formulario.get('nombre')?.touched && !formulario.get('nombre')?.valid){
+                <div class="error">
+                    @for(mensaje of obtenerMensajesError(["nombre"]) ; track $index){
+                        <small>{{mensaje}}</small>
+                    }
+                </div>
+                }
+                @if (formulario.get('apellido')?.touched && !formulario.get('apellido')?.valid){
+                <div class="error">
+                    @for(mensaje of obtenerMensajesError(["apellido"]) ; track $index){
+                        <small>{{mensaje}}</small>
+                    }
+                </div>
+                }
+            
+            </div>
+            
+
+
+            <div id="contenedor-fecha-nacimiento" class="form-group">
+                *Fecha de nacimiento
+                <input type="date" id="fecha-nacimiento" formControlName="fechaNacimiento" >
+            
+            </div>
+
+
+            
+            <div id="contenedor-grupo-sanguineo" class="form-group">
+                Sangre
+                <select type="combo" id="grupo-sanguineo">
+                <option value="vacio">...</option>
+                @for(grupoSanguineo of gruposSanguineos; track $index){
+                    <option value="{{grupoSanguineo}}">{{grupoSanguineo}}</option>
+                }
+                </select>
+
+            </div>
+
+
+            
+            <div id="contenedor-color-ojos" class="form-group">
+                Color ojos
+        
+                <select type="combo" id="color-ojos">
+                <option value="vacio">...</option>
+                @for(color of coloresOjos; track $index){
+                    <option value="{{color}}">{{color}}</option>
+                }
+                </select>
+            
+            </div>
+
+
+            
+            <div id="contenedor-cantidad-vacaciones-anuales" class="form-group">
+                Vacaciones anuales
+                <input type="number" id="vacaciones-anuales" formControlName="vacacionesAnuales">
+                
+                @if (formulario.get('vacacionesAnuales')?.dirty){
+                <div class="error">
+                    @for(mensaje of obtenerMensajesError(["vacacionesAnuales"]) ; track $index){
+                        <small>{{mensaje}}</small>
+                    }
+                </div>
+                }
+
+            </div>
+
+            <!--<div id="btn-confirmar" routerLink="{{obtenerURL()}}">
+                <span id="texto-confirmar">Confirmar ></span>
+            </div>-->
+
+            <div class="button-group">
+            <button type="submit" id="btn-confirmar"> <!--[disabled]="formulario.invalid"-->
+                enviar formulario
+            </button>
+            </div>
+        </div>
+        </form>
+
+
+
+
+    </div>
+    </div>
+</div>
